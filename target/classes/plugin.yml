@@ -1,0 +1,4 @@
+name: BetterRegions
+version: '1.0'
+main: org.ai.betterRegions.BetterRegions
+api-version: '1.21'

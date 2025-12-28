@@ -1,0 +1,8 @@
+# Config for BetterRegions
+
+# Region name mappings for %bregions_name% placeholder
+# Format: region_id: "Display Name"
+regions:
+  spawn: "&aSpawn &7Area"
+  pvp: "&cPvP &7Arena"
+  market: "&6Marketplace"
