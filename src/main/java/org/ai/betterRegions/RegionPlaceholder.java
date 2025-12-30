@@ -7,7 +7,7 @@ import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 import com.sk89q.worldguard.protection.regions.RegionQuery;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import org.bukkit.ChatColor;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -60,10 +60,12 @@ public class RegionPlaceholder extends PlaceholderExpansion {
         for (ProtectedRegion region : set) {
             String configName = plugin.getConfig().getString("regions." + region.getId());
             if (configName != null) {
-                return ChatColor.translateAlternateColorCodes('&', configName);
+                return LegacyComponentSerializer.legacySection()
+                        .serialize(LegacyComponentSerializer.legacyAmpersand().deserialize(configName));
             }
         }
 
-        return "";
+        return LegacyComponentSerializer.legacySection().serialize(LegacyComponentSerializer.legacyAmpersand()
+                .deserialize(plugin.getConfig().getString("default-name", "&7Wilderness")));
     }
 }

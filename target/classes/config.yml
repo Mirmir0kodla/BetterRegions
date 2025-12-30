@@ -6,3 +6,6 @@ regions:
   spawn: "&aSpawn &7Area"
   pvp: "&cPvP &7Arena"
   market: "&6Marketplace"
+
+# Default name when no region matches
+default-name: "&7Wilderness"
